@@ -1,0 +1,53 @@
+<div class="watchlist-container">
+  <div class="watchlist-header">
+    <h1 class="watchlist-title">Your Watchlist</h1>
+  </div>
+  
+  <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+    <div *ngIf="watchlist.length > 0; else emptyWatchlist" class="watchlist-grid">
+      <app-crypto-card 
+        *ngFor="let crypto of watchlist" 
+        [cryptocurrency]="crypto"
+      ></app-crypto-card>
+    </div>
+    
+    <ng-template #emptyWatchlist>
+      <div class="empty-watchlist">
+        <div class="empty-watchlist-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+          </svg>
+        </div>
+        <h2 class="empty-watchlist-title">Your watchlist is empty</h2>
+        <p class="empty-watchlist-text">Start adding cryptocurrencies to track them here</p>
+        <a routerLink="/" class="explore-btn">
+          Browse Cryptocurrencies
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 7.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708l3-3z"/>
+          </svg>
+        </a>
+      </div>
+    </ng-template>
+  </ng-container>
+  
+  <ng-template #notLoggedIn>
+    <div class="empty-watchlist">
+      <div class="empty-watchlist-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      </div>
+      <h2 class="empty-watchlist-title">Login to view your watchlist</h2>
+      <p class="empty-watchlist-text">You need to be logged in to manage your watchlist</p>
+      <div class="flex space-x-4">
+        <a routerLink="/login" class="explore-btn">
+          Login
+        </a>
+        <a routerLink="/register" class="explore-btn" style="background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color);">
+          Register
+        </a>
+      </div>
+    </div>
+  </ng-template>
+</div>

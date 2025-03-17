@@ -1,0 +1,17 @@
+<div class="trending-section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span>📈</span> Trending Cryptocurrencies
+    </h2>
+    <a *ngIf="activePage !== 'trending'" routerLink="/trending" class="view-all">
+      View all <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="crypto-grid">
+    <app-crypto-card
+      *ngFor="let crypto of activePage === 'trending' ? topCryptocurrencies : topCryptocurrencies.slice(0, 6)"
+      [cryptocurrency]="crypto"
+    ></app-crypto-card>
+  </div>
+</div>

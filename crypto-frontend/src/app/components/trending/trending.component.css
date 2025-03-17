@@ -1,0 +1,126 @@
+:host-context(body:not(.home-page)) .trending-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+:host-context(body:not(.home-page)) .section-title {
+  font-size: 2.25rem;
+}
+
+.trending-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+  background: linear-gradient(to right, #2563eb, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(to right, #2563eb, #4f46e5, #7c3aed);
+  border-radius: 2px;
+}
+
+.section-title span {
+  margin-right: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+.view-all {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--border-radius);
+}
+
+.view-all:hover {
+  color: white;
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.arrow {
+  margin-left: 0.25rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.view-all:hover .arrow {
+  transform: translateX(4px);
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.crypto-grid app-crypto-card {
+  animation: fadeIn 0.5s ease-out, slideUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.crypto-grid app-crypto-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.crypto-grid app-crypto-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.crypto-grid app-crypto-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.crypto-grid app-crypto-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.crypto-grid app-crypto-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.crypto-grid app-crypto-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@media (min-width: 768px) {
+  .crypto-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .crypto-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

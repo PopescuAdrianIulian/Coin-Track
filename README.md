@@ -1,6 +1,6 @@
 # Coin-Track
 
-A comprehensive cryptocurrency tracking application built with **Angular** for the frontend and **Spring Boot** for the backend. This application allows users to monitor cryptocurrency prices, create watchlists, and view detailed information about different cryptocurrencies.
+A cryptocurrency tracking application built with **Angular** for the frontend and **Spring Boot** for the backend. This application allows users to monitor cryptocurrency prices, create watchlists, and view detailed information about different cryptocurrencies.
 
 ## Features
 
